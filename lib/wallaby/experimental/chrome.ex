@@ -200,8 +200,8 @@ defmodule Wallaby.Experimental.Chrome do
 
   defp chrome_options(opts), do: %{
         args: chrome_args(opts),
-        "binary" => "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
-        "debuggerAddress" => "127.0.0.1:9222"
+        binary: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
+        debuggerAddress: "127.0.0.1:9222"
     }
 
   defp chrome_args(opts) do
@@ -230,7 +230,7 @@ defmodule Wallaby.Experimental.Chrome do
 
   defp headless_args do
     if headless?() do
-      ["--fullscreen", "--headless"]
+      ["--headless"]
     else
       []
     end
