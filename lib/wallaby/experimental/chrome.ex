@@ -199,9 +199,9 @@ defmodule Wallaby.Experimental.Chrome do
   end
 
   defp chrome_options(opts), do: %{
-        args: chrome_args(opts),
-        binary: "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
-        debuggerAddress: "127.0.0.1:9222"
+        "binary" => "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
+        "debuggerAddress" => "127.0.0.1:9222",
+        args: chrome_args(opts)
     }
 
   defp chrome_args(opts) do
