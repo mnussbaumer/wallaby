@@ -183,7 +183,7 @@ defmodule Wallaby.Experimental.Chrome do
 
   defp default_capabilities do
     %{
-      javascriptEnabled: false,
+      javascriptEnabled: true,
       loadImages: false,
       version: "",
       rotatable: false,
@@ -199,7 +199,9 @@ defmodule Wallaby.Experimental.Chrome do
   end
 
   defp chrome_options(opts), do: %{
-      args: chrome_args(opts)
+        args: chrome_args(opts),
+        "binary" => "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome",
+        "debuggerAddress" => "127.0.0.1:9222"
     }
 
   defp chrome_args(opts) do
@@ -219,9 +221,10 @@ defmodule Wallaby.Experimental.Chrome do
 
   def default_chrome_args do
     [
-      "--no-sandbox",
-      "window-size=1280,800",
+      "--headless",
       "--disable-gpu",
+      "--remote-debugging-port=9222",
+      "--remote-debugging-address=127.0.0.1"
     ]
   end
 
